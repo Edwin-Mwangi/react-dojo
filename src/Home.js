@@ -1,22 +1,23 @@
+import { useState } from "react"
+
+
+//outputting lists by cucling blogs
 const Home = () => {
-    //we'll also log out an event obj...just to show
-    const handleClick = (e) => {
-        console.log('Hello Ninjas', e, e.target)
-    }
-
-    //passing args in funcs
-    const handleClickAgain = (name, e) => {
-        console.log('hello '+ name, e)
-    }
-
-
+    const [ blogs, setBlogs] = useState([
+        {title: 'My new website', body: 'lorem ipsum dolor...', author: 'mario', id: 1},
+        {title: 'Revamped website', body: 'lorem ipsum dolor...', author: 'luigi', id: 2},
+        {title: 'The ten rings', body: 'lorem ipsum dolor...', author: 'yoshi', id: 3}
+    ]);
+ 
     return ( 
         <div className="home">
-            <h2>Homepage</h2>
-            {/* click events not invoked with () as they'll run automatically*/}
-            <button onClick={ handleClick }> Click me </button>
-            {/* handleClickAgain inside arrow func to prevent autorunning coz of(), e unecessary jut to show */}
-            <button onClick={ (e)=> handleClickAgain('mario',e)}>Click me Again </button>
+            {blogs.map((blog) => ( //jsx goes inside () instead 0f {}
+                <div className="blog-preview" key={blog.id}>
+                    <h2>{ blog.title }</h2>
+                    <p>Written by { blog.author }</p>
+                </div>
+            )
+            )}
         </div>
      );
 }
