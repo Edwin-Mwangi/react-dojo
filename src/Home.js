@@ -7,7 +7,7 @@ const Home = () => {
     const [ blogs, setBlogs] = useState([
         {title: 'My new website', body: 'lorem ipsum dolor...', author: 'mario', id: 1},
         {title: 'Revamped website', body: 'lorem ipsum dolor...', author: 'luigi', id: 2},
-        {title: 'The ten rings', body: 'lorem ipsum dolor...', author: 'yoshi', id: 3}
+        {title: 'The ten rings', body: 'lorem ipsum dolor...', author: 'mario', id: 3}
     ]);
  
     return ( 
@@ -16,7 +16,9 @@ const Home = () => {
 
             {/* props defined */}
             {/* you can pass str vals as props hence '' */}
-            <Bloglist blogs = { blogs } title = 'All blogs'/>  
+            <Bloglist blogs = { blogs } title = 'All blogs'/> 
+            {/* filtered based on author */}
+            <Bloglist blogs = { blogs.filter(blog => blog.author === 'mario') } title = "Mario's blogs "/>   
 
             {/* redudant code below */}
             {/* {blogs.map((blog) => ( //jsx goes inside () instead 0f {}
