@@ -20,11 +20,21 @@ function App() {
       <div className="content">
         {/* dynamic vals used on jsx */}
         <h1>{ title }</h1>
+
         {/* <p>{ person }</p> error Objs not valid react child */}
         <p>{ person.name } Liked { likes} times</p>
         <p>{ [1,2,3,4,5]} 
           <br /><span>{ Math.random() * 10 }</span> 
-          <a href={ link }> Google site</a>
+
+          {/* inline styling...2 curly braces inner as syles stored in Obj  */}
+          <a href={ link } style= {{
+            color: 'white',
+            backgroundColor: '#f1356d',
+            borderRadius: '8px',
+            padding: '5px',
+            textDecoration: 'none'
+          }}> Google site</a>
+
         </p>
       </div>
     </div>
