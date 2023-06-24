@@ -34,7 +34,6 @@ function App() {
             padding: '5px',
             textDecoration: 'none'
           }}> Google site</a>
-
         </p>
       </div>
     </div>

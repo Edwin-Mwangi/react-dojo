@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Bloglist from "./Bloglist";
 
 
 //outputting lists by cucling blogs
@@ -11,13 +12,20 @@ const Home = () => {
  
     return ( 
         <div className="home">
-            {blogs.map((blog) => ( //jsx goes inside () instead 0f {}
+            {/* <Bloglist/>   returns blogs & blog not defined in Bloglist so use props */}
+
+            {/* props defined */}
+            {/* you can pass str vals as props hence '' */}
+            <Bloglist blogs = { blogs } title = 'All blogs'/>  
+
+            {/* redudant code below */}
+            {/* {blogs.map((blog) => ( //jsx goes inside () instead 0f {}
                 <div className="blog-preview" key={blog.id}>
                     <h2>{ blog.title }</h2>
                     <p>Written by { blog.author }</p>
                 </div>
             )
-            )}
+            )} */}
         </div>
      );
 }
