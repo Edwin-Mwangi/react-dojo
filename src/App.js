@@ -1,4 +1,5 @@
-import './App.css';
+import Navbar from './Navbar';
+import Home from './Home';
 
 function App() {
 
@@ -12,6 +13,10 @@ function App() {
     // jsx code, similar to HTML...ie check className
     // added js jsreact to emmet for shortcuts to work
     <div className="App">
+      {/* component in template */}
+      <Navbar/>
+      <Home/>
+
       <div className="content">
         {/* dynamic vals used on jsx */}
         <h1>{ title }</h1>
