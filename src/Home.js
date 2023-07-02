@@ -8,16 +8,30 @@ const Home = () => {
 
     //to set loading...
     const [isPending, setIsPending ] = useState(true)
+    //to enable error output in DOM
+    const [error, setError] = useState(null)
 
     //[] empty array for only 1st load
     useEffect(() => {
         fetch()
             .then(res => {
+                //account for errors after server is reached..check catch
+                //res is an obj with many properties eg ok
+                if(!res.ok){
+                    throw Error("couldn't fetch data for that resource")
+                }
                 return res.json()
             })
             .then(data => {
                 //console.log(data)
                 setBlogs(data)
+                setIsPending(false)
+            })
+            .catch(err => {
+                //doesn't account for errors after server is reached
+                console.log(err.message)
+                setError(err.message)
+                setIsPending(false)
             })
     }, [])
 
@@ -40,6 +54,9 @@ const Home = () => {
             
             {/* filtered based on author */}
             { blogs && <Bloglist blogs = { blogs.filter(blog => blog.author === 'mario') } title = "Mario's blogs"/>}
+
+            {/* error in DOM */}
+            { error && <div>{ error}</div> } 
 
         </div>
      );
