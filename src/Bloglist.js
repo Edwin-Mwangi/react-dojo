@@ -8,7 +8,7 @@
     //console.log(props, blogs) //to see how they look like...blogs is an array inside props obj
 
 //destructured
-const Bloglist = ( {blogs, title} ) => {
+const Bloglist = ( {blogs, title, handleDelete} ) => {
 
     return ( 
         <div className="blog-list">
@@ -17,6 +17,8 @@ const Bloglist = ( {blogs, title} ) => {
                 <div className="blog-preview" key={blog.id}>
                     <h3>{ blog.title }</h3>
                     <p>Written by { blog.author }</p>
+                    {/* //to del list handleDel() defined and passed as prop in parent(Home.js) */}
+                    <button onClick={() => {handleDelete(blog.id)}}>Delete Blog</button>
                 </div>
             ))}
         </div>
