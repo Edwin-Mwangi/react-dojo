@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const Create = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
     const [author, setAuthor] = useState('mario')
     const [isPending, setIsPending] = useState(false)
+    const history = useHistory();
 
     const handleSubmit = () => {
         e.preventDefault();
@@ -22,6 +24,11 @@ const Create = () => {
             .then(() => {
                 console.log('new blog added')
                 setIsPending(false)
+                //to redirect to other pages forward or back
+                // history.go(-1) //back
+                // history.go(1) /forward
+                //redirect to homepage
+                history.push('/');
             })
             .catch((err) => console.log('Post error: ', err.message))
     }
