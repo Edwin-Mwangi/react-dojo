@@ -7,6 +7,8 @@ const useFetch = (url) => {
     const [error, setError] = useState(null)
 
     useEffect((url) => {
+        // to abort fetching data if we goto new page
+        const abortFetch = new AbortController();
         fetch(url)
             .then(res => {
                 if(!res.ok){
@@ -20,9 +22,15 @@ const useFetch = (url) => {
                 setIsPending(false)
             })
             .catch(err => {
-                setError(err.message)
-                setIsPending(false)
+                if (err.name === 'AbortError'){
+                    console.log('fetch aborted')
+                }else{
+                    setError(err.message)
+                    setIsPending(false)
+                }
+                
             })
+            return () => abortFetch.abort();
     }, [])
 
     return {blogs, isPending, error};
