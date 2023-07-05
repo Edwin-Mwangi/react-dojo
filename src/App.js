@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Create from './Create';
 import BlogDetails from './blogDetails';
+import NotFound from './NotFound';
 
 function App() {
 
@@ -23,6 +24,10 @@ function App() {
             <Route exact path ="/blog/:id">
               <BlogDetails/>
             </Route> 
+            {/* at the bottom so as not to include above URLs */}
+            <Route path ="*">
+              <NotFound/>
+            </Route>
           </Switch>
         </div>
         
