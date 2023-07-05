@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 
 //CUSTOM HOOK
 const useFetch = (url) => {
-    const [ blogs, setBlogs] = useState(null);
+    const [ data, setData] = useState(null);
     const [isPending, setIsPending ] = useState(true)
     const [error, setError] = useState(null)
 
@@ -18,7 +18,7 @@ const useFetch = (url) => {
                 return res.json()
             })
             .then(data => {
-                setBlogs(data)
+                setData(data)
                 setIsPending(false)
             })
             .catch(err => {
@@ -33,7 +33,7 @@ const useFetch = (url) => {
             return () => abortFetch.abort();
     }, [])
 
-    return {blogs, isPending, error};
+    return {data, isPending, error};
 }
  
 export default useFetch;
