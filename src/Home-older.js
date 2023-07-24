@@ -3,7 +3,7 @@ import Bloglist from "./Bloglist";
 
 
 //outputting lists by cycling blogs
-const Home = () => {
+const Home1 = () => {
     const [ blogs, setBlogs] = useState([
         {title: 'My new website', body: 'lorem ipsum dolor...', author: 'mario', id: 1},
         {title: 'Revamped website', body: 'lorem ipsum dolor...', author: 'luigi', id: 2},
@@ -42,7 +42,7 @@ const Home = () => {
             <p>{ name }</p>
 
             {/* redudant code below */}
-            {/* {blogs.map((blog) => ( //jsx goes inside () instead 0f {}
+            {/* {blogs.map((blog) => ( //jsx goes inside () instead of {}
                 <div className="blog-preview" key={blog.id}>
                     <h2>{ blog.title }</h2>
                     <p>Written by { blog.author }</p>

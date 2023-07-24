@@ -3,7 +3,7 @@ import Bloglist from "./Bloglist";
 
 
 //outputting lists by cycling blogs
-const Home = () => {
+const Home2 = () => {
     const [ blogs, setBlogs] = useState(null);
 
     //to set loading...
@@ -13,7 +13,7 @@ const Home = () => {
 
     //[] empty array for only 1st load
     useEffect(() => {
-        fetch("dummy")
+        fetch("http://localhost:8000/blogs")
             .then(res => {
                 //account for errors after server is reached..check catch
                 //res is an obj with many properties eg ok

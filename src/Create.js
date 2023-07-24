@@ -9,10 +9,10 @@ const Create = () => {
     const history = useHistory();
 
     const handleSubmit = () => {
-        e.preventDefault();
+        // e.preventDefault();
         setIsPending(true)
         //store input data in an obj literal (blog)
-        const blog = { title, blog, author }
+        const blog = { title, body, author }
         console.log(blog)
 
         //POST request

@@ -1,7 +1,7 @@
 //useState is a hook to make vars reactive
 import { useState } from "react"
 
-const Home = () => {
+const Home0 = () => {
     // let firstname = 'mario' //unreactive so react doen't rerender
     //made reactive (destructuring used)ie 2 vals returned from useState
     //(i) arg returned from the useState(arg) stored in firstname..arg is any datatype
@@ -35,7 +35,7 @@ const Home = () => {
             <p>{ firstname } is { age } years old.</p>
             {/* click events not invoked with () as they'll run automatically*/}
             <button onClick={ handleClick }> Click me </button>
-            {/* handleClickAgain inside arrow func to prevent autorunning coz of(), e unecessary jut to show */}
+            {/* handleClickAgain inside arrow func to prevent autorunning coz of(), e unecessary just to show */}
             <button onClick={ (e)=> handleClickAgain('mario',e)}>Click me Again </button>
         </div>
      );

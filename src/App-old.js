@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 import Home from './Home';
 
-function App() {
+function AppOld() {
 
   //using dynamic values
   const title = 'Welcome to a new blog';
@@ -20,8 +20,9 @@ function App() {
       <div className="content">
         {/* dynamic vals used on jsx */}
         <h1>{ title }</h1>
-
-        {/* <p>{ person }</p> error Objs not valid react child */}
+        
+        {/* cant output obj like this */}
+        {/* <p>{ person }</p> error - Objs not valid react child */}
         <p>{ person.name } Liked { likes} times</p>
         <p>{ [1,2,3,4,5]} 
           <br /><span>{ Math.random() * 10 }</span> 
@@ -40,4 +41,4 @@ function App() {
   );
 }
 
-export default App0;
+export default AppOld;
